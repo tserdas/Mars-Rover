@@ -83,13 +83,13 @@ namespace MarsRover
                 for (int indexOfInstructions = 0; indexOfInstructions < Instructions.Length; indexOfInstructions++)
                 {
                     if (Instructions[indexOfInstructions] == Left || Instructions[indexOfInstructions] == Right)
-                        NewPosition[2] = GetFace(Instructions[indexOfInstructions]);
+                        GetFace(Instructions[indexOfInstructions]);
                     else if (Instructions[indexOfInstructions] == Move)
                         Go();
                 }
         }
 
-        private string GetFace(string newOne)
+        private void GetFace(string newOne)
         {
             string result = NewPosition[2];
 
@@ -134,7 +134,7 @@ namespace MarsRover
             }
 
 
-            return result;
+            NewPosition[2] = result;
         }
 
         private void Go()
